@@ -1,0 +1,34 @@
+{
+    "name": "shmilyzxt/yii2-kartik-gii",
+    "description": "a gii crud template for yii2 using kartik grid and ajax",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","ajax","crud","gii","template","database"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "shmilyzxt",
+            "email": "49783121@qq.com",
+            "homepage": "https://github.com/shmilyzxt?tab=repositories"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/shmilyzxt/yii2-ajaxcrud/issues?state=open",
+        "source": "https://github.com/shmilyzxt/yii2-ajaxcrud"
+    },
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-bootstrap": "*",
+	    "kartik-v/yii2-grid": "^3.0.4",
+        "kartik-v/yii2-mpdf": "^1.0.0",
+        "kartik-v/yii2-editable": "^1.7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "shmilyzxt\\gii\\": ""
+        }
+    },
+    "extra": {
+        "bootstrap": "shmilyzxt\\gii\\Bootstrap"
+    }
+}
