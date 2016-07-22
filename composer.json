@@ -1,5 +1,5 @@
 {
-    "name": "shmilyzxt/yii2-kartik-gii",
+    "name": "shmilyzxt/yii2-kartikcrud",
     "description": "a gii crud template for yii2 using kartik grid and ajax",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","ajax","crud","gii","template","database"],
