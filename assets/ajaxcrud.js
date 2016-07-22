@@ -38,7 +38,7 @@ $(document).ready(function () {
             // If no selected ID's show warning
             modal.show();
             modal.setTitle('未选择');
-            modal.setContent('你必须选中要操作的项目');
+            modal.setContent('请选择要删除的项目');
             modal.addFooterButton("关闭",'button', 'btn btn-default', function (button, event) {
                 this.hide();
             });
