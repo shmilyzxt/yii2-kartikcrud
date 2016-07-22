@@ -16,7 +16,7 @@ class BootStrap implements BootstrapInterface
 {
     public function bootstrap($app){
         //Yii::setAlias("@kartikcrud", __DIR__);
-        Yii::setAlias("@shmilyzxt/kartivcrud", __DIR__);
+        Yii::setAlias("@shmilyzxt/kartikcrud", __DIR__);
         if(!$app->hasModule('gii')){
             throw new NotSupportedException("该扩展需要yii2-gii支持");
         }else{
