@@ -18,6 +18,7 @@ class Bootstrap implements BootstrapInterface
         if($app->hasModule('gii')){
             if (!isset($app->getModule('gii')->generators['kartikcrud'])) {
                 $app->getModule('gii')->generators['kartikcrud'] = 'shmilyzxt\kartikcrud\generators\Generator';
+                Yii::$app->setModule("gridview", ['class'=>'kartik\grid\Module']);
             }
         }
     }
