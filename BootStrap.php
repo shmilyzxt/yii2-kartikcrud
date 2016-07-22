@@ -14,7 +14,7 @@ use yii\base\NotSupportedException;
 
 class BootStrap implements BootstrapInterface
 {
-    public function bootstrap(Application $app){
+    public function bootstrap($app){
         //Yii::setAlias("@kartikcrud", __DIR__);
         Yii::setAlias("@shmilyzxt/kartivcrud", __DIR__);
         if(!$app->hasModule('gii')){
