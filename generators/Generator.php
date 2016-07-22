@@ -55,7 +55,7 @@ class Generator extends \yii\gii\Generator
             [['controllerClass', 'modelClass', 'searchModelClass', 'baseControllerClass'], 'filter', 'filter' => 'trim'],
             [['modelClass', 'controllerClass', 'baseControllerClass'], 'required'],
             [['searchModelClass'], 'compare', 'compareAttribute' => 'modelClass', 'operator' => '!==', 'message' => 'Search Model Class 必须继承自 Model Class.'],
-            [['modelClass', 'controllerClass', 'baseControllerClass', 'searchModelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
+            [['modelClass', 'controllerClass', 'baseControllerClass', 'searchModelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => '只有字母和"\"允许使用.'],
             [['modelClass'], 'validateClass', 'params' => ['extends' => BaseActiveRecord::className()]],
             [['baseControllerClass'], 'validateClass', 'params' => ['extends' => Controller::className()]],
             [['controllerClass'], 'match', 'pattern' => '/Controller$/', 'message' => '控制器名字必须以："Controller".结尾'],
@@ -130,7 +130,7 @@ class Generator extends \yii\gii\Generator
         $class = $this->modelClass;
         $pk = $class::primaryKey();
         if (empty($pk)) {
-            $this->addError('modelClass', "The table associated with $class must have primary key(s).");
+            $this->addError('modelClass', "数据库表：$class 必须设置主键.");
         }
     }
 

@@ -5,7 +5,7 @@ use yii\base\Widget;
 use yii\helpers\Html;
 
 /**
- * grid的全选widget
+ * grid的全选删除widget
  * @author shmilyzxt <49783121@qq.com>
  * @since 1.0
  */
@@ -20,8 +20,6 @@ class BulkButtonWidget extends Widget{
 	
 	public function run(){
 		$content = '<div class="pull-left">'.
-					'<input type="checkbox">'.
-                   '<span class="glyphicon glyphicon-arrow-right"></span>全选'.
                    $this->buttons.
                    '</div>';
 		return $content;
