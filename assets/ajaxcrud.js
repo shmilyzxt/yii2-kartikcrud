@@ -39,7 +39,7 @@ $(document).ready(function () {
             modal.show();
             modal.setTitle('未选择');
             modal.setContent('你必须选中要操作的项目');
-            modal.addFooterButton("关闭", 'btn btn-default', function (button, event) {
+            modal.addFooterButton("关闭",'button', 'btn btn-default', function (button, event) {
                 this.hide();
             });
         } else {
