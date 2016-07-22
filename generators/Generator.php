@@ -1,5 +1,5 @@
 <?php
-namespace johnitvn\ajaxcrud\generators;
+namespace shmilyzxt\kartikcrud\generators;
 
 use Yii;
 use yii\db\ActiveRecord;
