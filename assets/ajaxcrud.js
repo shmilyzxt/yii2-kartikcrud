@@ -1,8 +1,7 @@
 /*!
  * Ajax Crud 
  * =================================
- * Use for johnitvn/yii2-ajaxcrud extension
- * @author John Martin john.itvn@gmail.com
+ * Use for shmilyxt/yii2-kartikcrud extension
  */
 $(document).ready(function () {
 
