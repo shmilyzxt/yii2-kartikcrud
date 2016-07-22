@@ -12,8 +12,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/shmilyzxt/yii2-ajaxcrud/issues?state=open",
-        "source": "https://github.com/shmilyzxt/yii2-ajaxcrud"
+        "issues": "https://github.com/shmilyzxt/yii2-kartikcrud/issues?state=open",
+        "source": "https://github.com/shmilyzxt/yii2-kartikcrud"
     },
     "require": {
         "yiisoft/yii2": "*",
@@ -25,10 +25,10 @@
     },
     "autoload": {
         "psr-4": {
-            "shmilyzxt\\gii\\": ""
+            "shmilyzxt\\kartikcrud\\": ""
         }
     },
     "extra": {
-        "bootstrap": "shmilyzxt\\gii\\Bootstrap"
+        "bootstrap": "shmilyzxt\\kartikcrud\\Bootstrap"
     }
 }
