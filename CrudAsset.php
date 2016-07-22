@@ -26,12 +26,9 @@ class CrudAsset extends AssetBundle
     
    public function init() {
        // In dev mode use non-minified javascripts
-       $this->js = YII_DEBUG ? [
+       $this->js = [
            'ModalRemote.js',
            'ajaxcrud.js',
-       ]:[
-           'ModalRemote.min.js',
-           'ajaxcrud.min.js',
        ];
 
        parent::init();

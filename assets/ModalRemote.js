@@ -13,10 +13,10 @@
 function ModalRemote(modalId) {
 
     this.defaults = {
-        okLabel: "OK",
-        executeLabel: "Execute",
-        cancelLabel: "Cancel",
-        loadingTitle: "Loading"
+        okLabel: "去顶",
+        executeLabel: "执行",
+        cancelLabel: "取消",
+        loadingTitle: "加载中..."
     };
 
     this.modal = $(modalId);
@@ -75,7 +75,7 @@ function ModalRemote(modalId) {
         else if (size == 'small')
             $(this.dialog).addClass('modal-sm');
         else if (size !== 'normal')
-            console.warn("Undefined size " + size);
+            console.warn("未定义的： " + size);
     };
 
     /**
@@ -201,7 +201,7 @@ function ModalRemote(modalId) {
     function errorRemoteResponse(response) {
         this.setTitle(response.status + response.statusText);
         this.setContent(response.responseText);
-        this.addFooterButton('Close', 'button', 'btn btn-default', function (button, event) {
+        this.addFooterButton('关闭', 'button', 'btn btn-default', function (button, event) {
             this.hide();
         })
     }
@@ -257,7 +257,7 @@ function ModalRemote(modalId) {
 
         if (modalFormSubmitBtn === undefined) {
             // If submit button not found throw warning message
-            console.warn('Modal has form but does not have a submit button');
+            console.warn('模态框已定义，但是缺少提交按钮');
         } else {
             var instance = this;
 
