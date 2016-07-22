@@ -13,7 +13,7 @@
 function ModalRemote(modalId) {
 
     this.defaults = {
-        okLabel: "去顶",
+        okLabel: "确定",
         executeLabel: "执行",
         cancelLabel: "取消",
         loadingTitle: "加载中..."

@@ -144,7 +144,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "新建 <?= $modelClass ?>",
-                    'content'=>'<span class="text-success">Create <?= $modelClass ?> success</span>',
+                    'content'=>'<span class="text-success">创建 <?= $modelClass ?> 成功</span>',
                     'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('继续创建',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
         
