@@ -335,7 +335,7 @@ function ModalRemote(modalId) {
         this.addFooterButton(
             cancelLabel === undefined ? this.defaults.cancelLabel : cancelLabel,
             'button',
-            'btn btn-default pull-left',
+            'btn btn-default',
             function (e) {
                 this.hide();
             }

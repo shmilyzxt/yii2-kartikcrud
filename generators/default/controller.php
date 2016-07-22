@@ -104,7 +104,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                             Html::a('Edit',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
         }else{
@@ -136,7 +136,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                                 Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
@@ -145,7 +145,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "新建 <?= $modelClass ?>",
                     'content'=>'<span class="text-success">创建 <?= $modelClass ?> 成功</span>',
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                             Html::a('继续创建',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
         
                 ];         
@@ -155,7 +155,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                                 Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
@@ -198,7 +198,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                                 Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
                 ];         
             }else if($model->load($request->post()) && $model->save()){
@@ -208,7 +208,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                             Html::a('更新',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
             }else{
@@ -217,7 +217,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
                                 Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
                 ];        
             }
