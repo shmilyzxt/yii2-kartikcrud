@@ -35,7 +35,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Kartik And Ajax CRUD Generator';
+        return 'KartikGrid CRUD生成器';
     }
 
     /**
@@ -43,7 +43,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return '这是一个使用Kartik grid的CRUD生成器';
+        return '这是一个使用Kartik grid的CRUD生成器。使用该生成器，你可以快速的实现对一个数据库表的增删该查操作。并且该生成器默认使用kartik的gridview和模态框，结合ajax提交，使生成操作美观大方，能非常方便的融合到bootsrap的模板中';
     }
 
     /**
