@@ -89,19 +89,13 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return array_merge(parent::hints(), [
-            'modelClass' => 'This is the ActiveRecord class associated with the table that CRUD will be built upon.
-                You should provide a fully qualified class name, e.g., <code>app\models\Post</code>.',
-             'controllerClass' => 'This is the name of the controller class to be generated. You should
-                provide a fully qualified namespaced class (e.g. <code>app\controllers\PostController</code>),
-                and class name should be in CamelCase with an uppercase first letter. Make sure the class
-                is using the same namespace as specified by your application\'s controllerNamespace property.',
-            'viewPath' => 'Specify the directory for storing the view scripts for the controller. You may use path alias here, e.g.,
-                <code>/var/www/basic/controllers/views/post</code>, <code>@app/views/post</code>. If not set, it will default
-                to <code>@app/views/ControllerID</code>',
-            'baseControllerClass' => 'This is the class that the new CRUD controller class will extend from.
-                You should provide a fully qualified class name, e.g., <code>yii\web\Controller</code>.',
-            'searchModelClass' => 'This is the name of the search model class to be generated. You should provide a fully
-                qualified namespaced class name, e.g., <code>app\models\PostSearch</code>.',
+            'modelClass' => 'Model类，与数据库表关联，需要填写完整名称空间,比如： <code>app\models\Post</code>.',
+             'controllerClass' => 'Controller类，需要填写完整名称空间，比如： (<code>app\controllers\PostController</code>),
+                第一个字母需要大写. 并且以"Controller"结尾.',
+            'viewPath' => '视图文件目录，可以指定一个视图文件目录，比如：
+                <code>/var/www/basic/controllers/views/post</code>.如果不填，将默认为：<code>@app/views/ControllerID</code>',
+            'baseControllerClass' => '给生成的Controller指定一个父类，必须填写完整名称空间比如：, <code>yii\web\Controller</code>.',
+            'searchModelClass' => 'ModelSearch类，继承Model类，用户查询，必须填写完整名称空间，比如： <code>app\models\PostSearch</code>.',
         ]);
     }
 

@@ -3,7 +3,7 @@
 /* @var $form yii\widgets\ActiveForm */
 /* @var $generator shmilyzxt\kartikcrud\generators\Generator */
 
-echo '<h3>配置</h3>';
+echo '<h3>填写生成配置信息</h3>';
 echo $form->field($generator, 'modelClass');
 echo $form->field($generator, 'searchModelClass');
 echo $form->field($generator, 'controllerClass');
