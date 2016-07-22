@@ -23,11 +23,6 @@
         "kartik-v/yii2-detail-view": "^1.7.3",
         "kartik-v/yii2-mpdf": "^1.0.0",
         "kartik-v/yii2-editable": "^1.7.3"
-        /*"kartik-v/yii2-widget-activeform": "^1.4.7",
-        "kartik-v/yii2-widget-affix": "*",
-        "kartik-v/yii2-widget-alert": "^1.1.0",
-        "kartik-v/yii2-widget-datepicker": "^1.4.1",
-        "kartik-v/yii2-widget-datetimepicker": "^1.4.1"*/
     },
     "autoload": {
         "psr-4": {
