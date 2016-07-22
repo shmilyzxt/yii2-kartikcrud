@@ -22,10 +22,10 @@ class CrudAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
         'kartik\grid\GridViewAsset',
+        'kartik\detail\DetailViewAsset'
     ];
     
    public function init() {
-       // In dev mode use non-minified javascripts
        $this->js = [
            'ModalRemote.js',
            'ajaxcrud.js',
