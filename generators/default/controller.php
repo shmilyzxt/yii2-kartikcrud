@@ -105,7 +105,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
                     'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                            Html::a('编辑',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
         }else{
             return $this->render('view', [
