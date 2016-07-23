@@ -276,15 +276,21 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $ret = $this->findModel(<?= $actionParams ?>)->delete();
 
         if($request->isAjax){
+            Yii::$app->response->format = Response::FORMAT_JSON;
+
             if($ret === false){
-                return "删除失败";
+                return [
+                    'success' => false,
+                    'messages' => [
+                    'kv-detail-danger' => '删除失败',
+                    ]
+                ];
             }
 
-            Yii::$app->response->format = Response::FORMAT_JSON;
             return [
                 'success' => true,
                 'messages' => [
-                    'kv-detail-info' => '删除成功',
+                    'kv-detail-success' => '删除成功',
                 ]
             ];
         }else{

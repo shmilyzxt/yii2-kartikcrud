@@ -31,6 +31,11 @@ function ModalRemote(modalId) {
 
     this.loadingContent = '<div class="progress progress-striped active" style="margin-bottom:0;"><div class="progress-bar" style="width: 100%"></div></div>';
 
+    //模态框关闭事件
+    this.modal.on('hide.bs.modal',function () {
+        location.reload();
+    });
+
 
     /**
      * Show the modal
