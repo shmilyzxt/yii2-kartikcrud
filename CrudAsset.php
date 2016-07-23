@@ -16,21 +16,22 @@ class CrudAsset extends AssetBundle
     public $css = [
         'ajaxcrud.css'
     ];
+    
+    public $js = [
+        'ModalRemote.js',
+        'ajaxcrud.js',
+        'kv-grid-checkbox-fix.js'
+    ];
 
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
-        'kartik\grid\GridViewAsset',
-        'kartik\detail\DetailViewAsset'
+        'kartik\detail\DetailViewAsset',
+        'kartik\grid\GridViewAsset'
     ];
     
    public function init() {
-       $this->js = [
-           'ModalRemote.js',
-           'ajaxcrud.js',
-       ];
-
        parent::init();
    }
 }

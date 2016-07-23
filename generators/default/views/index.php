@@ -27,9 +27,6 @@ use shmilyzxt\kartikcrud\BulkButtonWidget;
 
 $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
 $this->params['breadcrumbs'][] = $this->title;
-
-CrudAsset::register($this);
-
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index">
     <div id="ajaxCrudDatatable">
@@ -79,4 +76,12 @@ CrudAsset::register($this);
     "footer"=>"",// always need it for jquery plugin
 ])?>'."\n"?>
 <?='<?php Modal::end(); ?>'?>
+
+<?php
+echo "<?php\n";
+?>
+//引入js放在最后，应为_column.php引入了kv-checkbox.js,为了让别最后引入改写后的：kv-grid-checkbox-fix.js放在最后
+CrudAsset::register($this);
+?>
+
 

@@ -236,7 +236,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     }
 
     /**
-     * 删除记录<?= $modelClass ?> .
+     * 删除记录<?= $modelClass ?>(从列表删除，删除后刷新列表页面) .
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
      * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
@@ -261,6 +261,35 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         }
 
 
+    }
+
+    /**
+    * 删除记录从消息页面modal<?= $modelClass ?>.
+    * For ajax request will return json object
+    * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
+    * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
+    * @return mixed
+    */
+    public function actionDeletefromdetail(<?= $actionParams ?>)
+    {
+        $request = Yii::$app->request;
+        $ret = $this->findModel(<?= $actionParams ?>)->delete();
+
+        if($request->isAjax){
+            if($ret === false){
+                return "删除失败";
+            }
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                'success' => true,
+                'messages' => [
+                    'kv-detail-info' => '删除成功',
+                ]
+            ];
+        }else{
+            return $this->redirect(['index']);
+        }
     }
 
      /**

@@ -1,4 +1,4 @@
-/*!
+/*!kartik-v checkbox的全选和取消全选在ajax的情况下存在bug，这里做修复
  * @package   yii2-grid
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016

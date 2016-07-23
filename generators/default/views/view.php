@@ -6,7 +6,10 @@ use yii\helpers\StringHelper;
 /* @var $this yii\web\View */
 /* @var $generator yii\gii\generators\crud\Generator */
 
+$modelClass = StringHelper::basename($generator->modelClass);
 $urlParams = $generator->generateUrlParams();
+$nameAttribute = $generator->getNameAttribute();
+$actionParams = $generator->generateActionParams();
 
 echo "<?php\n";
 ?>
@@ -28,15 +31,16 @@ use kartik\detail\DetailView;
             'type'=>DetailView::TYPE_INFO,
         ],
         'deleteOptions'=>[
-        'url'=>['delete'],
-        /*'data'=>[
-        'confirm'=>Yii::t('app', 'Are you sure you want to delete this item?'),
-        'method'=>'post',
-        ],*/
-        'params' => ['id' => $model->id, 'kvdelete'=>true],
+            'url'=>['deletefromdetail','<?=substr($actionParams,1)?>'=>$model->id],
+            'lable' =>'删除',
+            /*'data'=>[
+            'confirm'=>Yii::t('app', 'Are you sure you want to delete this item?'),
+            'method'=>'post',
+            ],*/
+            /*'params' => ['id' => $model->id],*/
         ],
         'updateOptions'=>[
-        'url'=>['detailview'],
+            'url'=>['detailview'],
         ],
         'container' => ['id'=>'kv-demo'],
         //'formOptions' => ['action' => \yii\helpers\Url::to("/mgr/history/detailviewdelete")],// your action to delete
