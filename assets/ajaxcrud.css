@@ -6,3 +6,9 @@
 .kv-grid-toolbar button.ui-corner-all > span.ui-button-text{
 	background: #fff;
 }
+
+/*
+.modal-dialog {
+	width: 800px;
+	margin: 30px auto;
+}*/

@@ -35,13 +35,27 @@ $(document).ready(function () {
         });
 
         if (selectedIds.length == 0) {
+            window.BootstrapDialog.show({
+                title: '提示',
+                message: '请选择要删除的项目',
+                buttons: [
+                    {
+                        label: '<i class="glyphicon glyphicon-ok"></i> 确定',
+                        cssClass: 'btn btn-default',
+                        action: function(dialog) {
+                            dialog.close();
+                        }
+                    },
+                ]
+            });
+           /* krajeeDialog.alert("请选择要删除的项目");
             // If no selected ID's show warning
             modal.show();
             modal.setTitle('未选择');
             modal.setContent('请选择要删除的项目');
             modal.addFooterButton("关闭",'button', 'btn btn-default', function (button, event) {
                 this.hide();
-            });
+            });*/
         } else {
             // Open modal
             modal.open(this, selectedIds);

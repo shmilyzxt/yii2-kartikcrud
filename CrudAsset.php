@@ -2,7 +2,7 @@
 
 namespace shmilyzxt\kartikcrud;
 
-use yii\web\AssetBundle;
+use kartik\base\AssetBundle;
 
 /**
  * 资源包
@@ -20,15 +20,18 @@ class CrudAsset extends AssetBundle
     public $js = [
         'ModalRemote.js',
         'ajaxcrud.js',
-        'kv-grid-checkbox-fix.js'
+        'kv-grid-checkbox-fix.js',
     ];
 
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
+        'kartik\grid\GridResizeColumnsAsset',
         'kartik\detail\DetailViewAsset',
-        'kartik\grid\GridViewAsset'
+        'kartik\grid\GridViewAsset',
+        'kartik\dialog\DialogBootstrapAsset',
+        'kartik\dialog\DialogAsset',
     ];
     
    public function init() {

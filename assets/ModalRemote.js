@@ -299,7 +299,47 @@ function ModalRemote(modalId) {
      * @param {number[]} selectedIds
      */
     this.confirmModal = function (title, message, okLabel, cancelLabel, size, dataUrl, dataRequestMethod, selectedIds) {
-        this.show();
+        var instance = this;
+        window.BootstrapDialog.show({
+            type :BootstrapDialog.TYPE_WARNING,
+            title: '确认操作',
+            message: '<form id="ModalRemoteConfirmForm">你确定要执行删除操作吗？',
+            buttons: [
+                {
+                    label: '<i class="glyphicon glyphicon-ban-circle"></i> 取消',
+                    cssClass: 'btn btn-default',
+                    action: function(dialog) {
+                        dialog.close();
+                    }
+                },
+                {
+                    label: '<i class="glyphicon glyphicon-ok"></i> 确定',
+                    cssClass: 'btn btn-warning',
+                    action: function(dialog) {
+                        var data;
+                        if (window.FormData) {
+                            data = new FormData($('#ModalRemoteConfirmForm')[0]);
+                            if (typeof selectedIds !== 'undefined' && selectedIds)
+                                data.append('pks', selectedIds.join());
+                        } else {
+                            // Fallback to serialize
+                            data = $('#ModalRemoteConfirmForm');
+                            if (typeof selectedIds !== 'undefined' && selectedIds)
+                                data.pks = selectedIds;
+                            data = data.serializeArray();
+                        }
+
+                        instance.doRemote(
+                            dataUrl,
+                            dataRequestMethod,
+                            data
+                        );
+                    }
+                },
+            ]
+        });
+
+       /* this.show();
         this.setSize(size);
 
         if (title !== undefined) {
@@ -344,7 +384,7 @@ function ModalRemote(modalId) {
             function (e) {
                 this.hide();
             }
-        );
+        );*/
 
     }
 

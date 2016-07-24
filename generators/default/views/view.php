@@ -14,6 +14,7 @@ $actionParams = $generator->generateActionParams();
 echo "<?php\n";
 ?>
 
+use kartik\dialog\Dialog;
 use kartik\detail\DetailView;
 
 /* @var $this yii\web\View */
@@ -21,7 +22,8 @@ use kartik\detail\DetailView;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
  
-    <?= "<?= " ?>DetailView::widget([
+    <?= "<?php " ?>$pk = $model->getPrimaryKey();
+        echo DetailView::widget([
         'model' => $model,
         'condensed'=>false,
         'hover'=>true,
@@ -30,14 +32,39 @@ use kartik\detail\DetailView;
             'heading'=>'查看和修改',
             'type'=>DetailView::TYPE_INFO,
         ],
-        'deleteOptions'=>[
-            'url'=>['deletefromdetail','<?=substr($actionParams,1)?>'=>$model->id],
-            'lable' =>'删除',
-            /*'data'=>[
-            'confirm'=>Yii::t('app', 'Are you sure you want to delete this item?'),
-            'method'=>'post',
+
+        //提示信息设置
+        'alertMessageSettings'=>[
+            'kv-detail-error' => 'alert alert-danger',
+            'kv-detail-success' => 'alert alert-success',
+            'kv-detail-info' => 'alert alert-info',
+            'kv-detail-warning' => 'alert alert-warning'
+        ],
+
+        //弹框按钮设定
+        'krajeeDialogSettings'=>[
+            /*'options' =>[
+                'size' => Dialog::SIZE_SMALL
             ],*/
-            /*'params' => ['id' => $model->id],*/
+            'dialogDefaults'=>[
+                    Dialog::DIALOG_ALERT => [
+                    'type' => Dialog::TYPE_INFO,
+                    'title' => '提示',
+                    'buttonLabel' => '<i class="glyphicon glyphicon-ok"></i> 确定'
+                ],
+                Dialog::DIALOG_CONFIRM => [
+                    'type' => Dialog::TYPE_WARNING,
+                    'title' => "确认",
+                    'btnOKClass' => 'btn-warning',
+                    'btnOKLabel' => '<i class="glyphicon glyphicon-ok"></i> 确定',
+                    'btnCancelLabel' => '<i class="glyphicon glyphicon-ban-circle"></i> 取消'
+                ],
+            ],
+        ],
+
+        'deleteOptions'=>[
+            'url'=>['deletefromdetail','<?=substr($actionParams,1)?>'=>$pk],
+            'lable' =>'删除',
         ],
         'updateOptions'=>[
             'url'=>['detailview'],

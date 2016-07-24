@@ -45,10 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     '{toggleData}'.
                     '{export}'
                 ],
-            ],          
-            'striped' => true,
-            'condensed' => true,
-            'responsive' => true,          
+            ],
+            'containerOptions'=>['style'=>'overflow: auto'],
+            'headerRowOptions'=>['class'=>'kartik-sheet-style'],
+            'filterRowOptions'=>['class'=>'kartik-sheet-style'],
+            'bordered'=>true,
+            'striped'=>true,
+            'condensed'=>true,
+            'responsive'=>true,
+            'hover'=>true,
+            //'showPageSummary'=>true,
+            'resizableColumns'=>true,
+            //'persistResize'=>true,
+            'floatHeader'=>false,
             'panel' => [
                 'type' => 'primary', 
                 'heading' => '<i class="glyphicon glyphicon-list"></i> <?= Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?> 列表',
