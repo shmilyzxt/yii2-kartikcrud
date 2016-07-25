@@ -76,7 +76,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]),
                         ]).                        
                         '<div class="clearfix"></div>',
-            ]
+            ],
+
+            //添加高级分页支持
+            'filterSelector' => "select[name='".$dataProvider->getPagination()->pageSizeParam."'],input[name='".$dataProvider->getPagination()->pageParam."']",
+            'pager' => [
+                'class' => \shmilyzxt\kartikcrud\LinkPager::className(),
+                'template' => '{pageButtons} {customPage} {pageSize}',
+                'pageSizeList' => [10, 20, 30, 50],
+                'customPageWidth' => 50,
+                'customPageBefore' => '跳转到',
+                'customPageAfter' => ' 页 ',
+                'firstPageLabel' => '首页',
+                'lastPageLabel' => '末页',
+            ],
         ])<?="?>\n"?>
     </div>
 </div>

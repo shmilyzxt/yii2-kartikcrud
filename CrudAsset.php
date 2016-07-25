@@ -14,7 +14,8 @@ class CrudAsset extends AssetBundle
     public $sourcePath = '@shmilyzxt/kartikcrud/assets';
 
     public $css = [
-        'ajaxcrud.css'
+        'ajaxcrud.css',
+        'kv-grid-fix.css'
     ];
     
     public $js = [
