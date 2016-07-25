@@ -73,6 +73,7 @@ use kartik\detail\DetailView;
         //'formOptions' => ['action' => \yii\helpers\Url::to("/mgr/history/detailviewdelete")],// your action to delete
         'enableEditMode'=>true,
         //'buttons1' =>'{update}',
+        'buttons2' => '{view} {reset}',
         'attributes' => [
 <?php
             if (($tableSchema = $generator->getTableSchema()) === false) {

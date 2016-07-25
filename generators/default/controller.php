@@ -104,7 +104,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
+                            Html::a('保存',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
         }else{
             return $this->render('view', [
