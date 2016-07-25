@@ -22,10 +22,13 @@ or add
 to the require section of your `composer.json` file.
 
 
+
 Usage
 -----
 
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-http://yourdomain/index.php?r=gii to visit the generator
+http://yourdomain/index.php?r=gii 
+```
+to visit the generator.
