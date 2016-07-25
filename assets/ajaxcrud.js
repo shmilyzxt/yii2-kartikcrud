@@ -61,4 +61,11 @@ $(document).ready(function () {
             modal.open(this, selectedIds);
         }
     });
+    
+    var btn = $(".kv-btn-save");
+    if(btn){
+        btn.click(function () {
+            alert("here");return false;
+        });
+    }
 });

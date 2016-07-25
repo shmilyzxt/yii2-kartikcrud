@@ -66,9 +66,9 @@ use kartik\detail\DetailView;
             'url'=>['deletefromdetail','<?=substr($actionParams,1)?>'=>$pk],
             'lable' =>'删除',
         ],
-        'updateOptions'=>[
+        /*'updateOptions'=>[
             'url'=>['detailview'],
-        ],
+        ],*/
         'container' => ['id'=>'kv-demo'],
         //'formOptions' => ['action' => \yii\helpers\Url::to("/mgr/history/detailviewdelete")],// your action to delete
         'enableEditMode'=>true,
