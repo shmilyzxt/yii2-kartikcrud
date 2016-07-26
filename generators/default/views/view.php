@@ -69,11 +69,16 @@ use kartik\detail\DetailView;
         /*'updateOptions'=>[
             'url'=>['detailview'],
         ],*/
+        'formOptions' =>[
+            'id' => "edit-model-form",
+            //'action' => ["<?=strtolower($modelClass)?>/update",<?=substr($actionParams,1)?>=>$pk],
+            'action' => "<?=urldecode(Yii::$app->urlManager->createUrl([strtolower($modelClass)."/update",substr($actionParams,1) => '$pk']));?>",
+        ],
         'container' => ['id'=>'kv-demo'],
         //'formOptions' => ['action' => \yii\helpers\Url::to("/mgr/history/detailviewdelete")],// your action to delete
         'enableEditMode'=>true,
         //'buttons1' =>'{update}',
-        'buttons2' => '{view} {reset}',
+        'buttons2' => '{view} {reset} {save}',
         'attributes' => [
 <?php
             if (($tableSchema = $generator->getTableSchema()) === false) {
@@ -83,7 +88,22 @@ use kartik\detail\DetailView;
             } else {
                 foreach ($generator->getTableSchema()->columns as $column) {
                     $format = $generator->generateColumnFormat($column);
-                    echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
+                    //echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
+                    if($column->name == substr($actionParams,1)){
+                        $reayOnly = 'true'; //主键不允许修改
+                    }else{
+                        $reayOnly = 'false';
+                    }
+                    echo "              [";
+                    echo "\n";
+                    echo "                  'attribute' => '".$column->name."',";
+                    echo "\n";
+                    echo "                  'label' => '".$column->name."',";
+                    echo "\n";
+                    echo "                  'displayOnly' => $reayOnly,";
+                    echo "\n";
+                    echo "              ],";
+                    echo "\n";
                 }
             }
             ?>

@@ -22,6 +22,7 @@ class CrudAsset extends AssetBundle
         'ModalRemote.js',
         'ajaxcrud.js',
         'kv-grid-checkbox-fix.js',
+        'kv-detail-view-fix.js',
     ];
 
     public $depends = [

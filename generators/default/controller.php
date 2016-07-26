@@ -104,9 +104,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                            Html::a('保存',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];    
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
+                   ];
         }else{
             return $this->render('view', [
                 'model' => $this->findModel(<?= $actionParams ?>),
@@ -208,17 +207,15 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                            Html::a('更新',['update','<?= substr($actionParams,1) ?>'=><?= $actionParams ?>],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
                 ];    
             }else{
                  return [
                     'title'=> "更新 <?= $modelClass ?> #".<?= $actionParams ?>,
-                    'content'=>$this->renderAjax('update', [
+                    'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                                Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
                 ];        
             }
         }else{

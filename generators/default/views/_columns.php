@@ -41,6 +41,7 @@ return [
             echo "    [\n";
             echo "        'class'=>'\kartik\grid\DataColumn',\n";
             echo "        'attribute'=>'" . $name . "',\n";
+            echo "        'label'=>'" . $name . "',\n";
             echo "    ],\n";
         } else {
             echo "    // [\n";

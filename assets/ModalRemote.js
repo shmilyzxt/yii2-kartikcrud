@@ -166,7 +166,7 @@ function ModalRemote(modalId) {
      * @param {string} method The method of request
      * @param {object}data of request
      */
-    this.doRemote = function (url, method, data) {
+    this.doRemote = function (url, method, data ,contentType) {
         var instance = this;
         $.ajax({
             url: url,
@@ -182,7 +182,7 @@ function ModalRemote(modalId) {
             success: function (response) {
                 successRemoteResponse.call(instance, response);
             },
-            contentType: false,
+            contentType: contentType?contentType:false,
             cache: false,
             processData: false
         });
