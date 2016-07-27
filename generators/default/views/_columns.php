@@ -60,7 +60,7 @@ return [
                 return Url::to([$action,'<?=substr($actionParams,1)?>'=>$key]);
         },
 
-    <?php if (1==1) {?>
+    <?php if (1==2) {?>
         'template' => \shmilyzxt\kartikcrud\ShmilyzxtHelper::filterActionColumn(['view','delete']),
     <?php }else{?>
         //动作栏按钮设定（默认为：查看，禁用，删除）
@@ -71,11 +71,14 @@ return [
                     return '';
                 }
                 $options = [
-                    'title' => "启用",
-                    'aria-label' => "启用",
-                    'data-confirm' => "确定启用吗?",
-                    'data-method' => 'post',
-                    'data-pjax' => '0',
+                    'role'=>'modal-remote',
+                    'title'=>'启用',
+                    'data-confirm'=>false,
+                    'data-method'=>false,// for overide yii data api
+                    'data-request-method'=>'post',
+                    'data-toggle'=>'tooltip',
+                    'data-confirm-title'=>'确认操作',
+                    'data-confirm-message'=>'你确定要启用吗？'
                 ];
                 return Html::a('<span class="glyphicon glyphicon-ok"></span>', $url, $options);
             },
@@ -84,11 +87,14 @@ return [
                     return '';
                 }
                 $options = [
-                    'title' => '禁用',
-                    'aria-label' =>  '禁用',
-                    'data-confirm' =>'确定禁用吗?',
-                    'data-method' => 'post',
-                    'data-pjax' => '0',
+                    'role'=>'modal-remote',
+                    'title'=>'禁用',
+                    'data-confirm'=>false,
+                    'data-method'=>false,// for overide yii data api
+                    'data-request-method'=>'post',
+                    'data-toggle'=>'tooltip',
+                    'data-confirm-title'=>'确认操作',
+                    'data-confirm-message'=>'你确定要禁用吗？'
                 ];
                 return Html::a('<span class="glyphicon glyphicon-cog"></span>', $url, $options);
             },

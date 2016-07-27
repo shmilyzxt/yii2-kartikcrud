@@ -329,6 +329,44 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     }
 
     /**
+    * 激活
+    * @param integer $id
+    * @return type
+    */
+    public function actionActivate($id)
+    {
+        $model = $this->findModel($id);
+        if ($model->status == 0) {
+            $model->status = 1;
+        }
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if ($model->save()) {
+            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
+        }
+    }
+
+    /**
+    * 禁用
+    * @param integer $id
+    * @return type
+    */
+    public function actionInactivate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->status == 1) {
+            $model->status = 0;
+        }
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if ($model->save()) {
+            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
+        }
+    }
+
+
+    /**
      * Finds the <?= $modelClass ?> model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * <?= implode("\n     * ", $actionParamComments) . "\n" ?>

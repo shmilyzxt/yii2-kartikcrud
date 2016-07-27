@@ -29,6 +29,10 @@ class Generator extends \yii\gii\Generator
     public $viewPath;
     public $baseControllerClass = 'yii\web\Controller';
     public $searchModelClass = '';
+    public $isActiveOpen = false; //是否开启自动生成启用禁用功能
+    public $activeField = "status"; //代表启用禁用字段的名字
+    public $activeSuccessValue = 1; //启用时的值
+    public $activeFailedValue = 0;  //禁用时的值
 
     /**
      * @inheritdoc
