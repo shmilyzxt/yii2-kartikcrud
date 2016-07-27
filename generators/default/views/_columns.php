@@ -19,6 +19,7 @@ echo "<?php\n";
 
 ?>
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 return [
     [
@@ -31,7 +32,7 @@ return [
     ],
     <?php
     $count = 0;
-    foreach ($generator->getColumnNames() as $name) {   
+    foreach ($generator->getColumnNames() as $name) {
         if ($name=='id'||$name=='created_at'||$name=='updated_at'){
             echo "    // [\n";
             echo "        // 'class'=>'\kartik\grid\DataColumn',\n";
@@ -55,17 +56,52 @@ return [
         'class' => 'kartik\grid\ActionColumn',
         'dropdown' => false,
         'vAlign'=>'middle',
-        'urlCreator' => function($action, $model, $key, $index) { 
+        'urlCreator' => function($action, $model, $key, $index) {
                 return Url::to([$action,'<?=substr($actionParams,1)?>'=>$key]);
         },
-        'viewOptions'=>['role'=>'modal-remote','title'=>'查看','data-toggle'=>'tooltip'],
-        'updateOptions'=>['role'=>'modal-remote','title'=>'更新', 'data-toggle'=>'tooltip'],
-        'deleteOptions'=>['role'=>'modal-remote','title'=>'删除', 
+
+    <?php if (1==1) {?>
+        'template' => \shmilyzxt\kartikcrud\ShmilyzxtHelper::filterActionColumn(['view','delete']),
+    <?php }else{?>
+        //动作栏按钮设定（默认为：查看，禁用，删除）
+        'template' => \shmilyzxt\kartikcrud\ShmilyzxtHelper::filterActionColumn(['view','activate','inactivate', 'delete']),
+        'buttons' => [
+            'activate' => function($url, $model) {
+                if ($model->status == 1) {
+                    return '';
+                }
+                $options = [
+                    'title' => "启用",
+                    'aria-label' => "启用",
+                    'data-confirm' => "确定启用吗?",
+                    'data-method' => 'post',
+                    'data-pjax' => '0',
+                ];
+                return Html::a('<span class="glyphicon glyphicon-ok"></span>', $url, $options);
+            },
+            'inactivate' => function($url, $model) {
+                if ($model->status == 0) {
+                    return '';
+                }
+                $options = [
+                    'title' => '禁用',
+                    'aria-label' =>  '禁用',
+                    'data-confirm' =>'确定禁用吗?',
+                    'data-method' => 'post',
+                    'data-pjax' => '0',
+                ];
+                return Html::a('<span class="glyphicon glyphicon-cog"></span>', $url, $options);
+            },
+        ],
+    <?php }?>
+        'viewOptions'=>['role'=>'modal-remote','title'=>'查看及修改','data-toggle'=>'tooltip'],
+        //'updateOptions'=>['role'=>'modal-remote','title'=>'更新', 'data-toggle'=>'tooltip'],
+        'deleteOptions'=>['role'=>'modal-remote','title'=>'删除',
                           'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
                           'data-request-method'=>'post',
                           'data-toggle'=>'tooltip',
                           'data-confirm-title'=>'确认操作',
-                          'data-confirm-message'=>'你确定要删除该记录吗？'], 
+                          'data-confirm-message'=>'你确定要删除该记录吗？'],
     ],
 
 ];   

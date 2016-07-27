@@ -285,6 +285,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             }
 
             return [
+                'forceClose'=>true,
+                'forceReload'=>'#crud-datatable-pjax',
                 'success' => true,
                 'messages' => [
                     'kv-detail-success' => '删除成功',

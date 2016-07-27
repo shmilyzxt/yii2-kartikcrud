@@ -33,7 +33,7 @@ function ModalRemote(modalId) {
 
     //模态框关闭事件
     this.modal.on('hide.bs.modal',function () {
-        location.reload();
+        //location.reload();
     });
 
 
@@ -316,6 +316,7 @@ function ModalRemote(modalId) {
                     label: '<i class="glyphicon glyphicon-ok"></i> 确定',
                     cssClass: 'btn btn-warning',
                     action: function(dialog) {
+                        dialog.close();
                         var data;
                         if (window.FormData) {
                             data = new FormData($('#ModalRemoteConfirmForm')[0]);

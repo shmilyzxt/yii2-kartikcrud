@@ -78,7 +78,6 @@
             self.$btnSave.off(eClick).on(eClick, function () {
                 $alert.hide();
                 $detail.removeClass('kv-detail-loading').addClass('kv-detail-loading');
-
                 var form = $("#edit-model-form");
                 var modal = new ModalRemote('#ajaxCrudModal');
                 modal.doRemote(form.attr('action'),"post",form.serialize(),"application/x-www-form-urlencoded");
@@ -126,10 +125,20 @@
                 success: function (data) {
                     if (data.success) {
                         $detail.hide();
-                        self.$btnDelete.attr('disabled', 'disabled');
-                        self.$btnUpdate.attr('disabled', 'disabled');
-                        self.$btnView.attr('disabled', 'disabled');
-                        self.$btnSave.attr('disabled', 'disabled');
+                        self.$btnDelete.css('display', 'none');
+                        self.$btnUpdate.css('display', 'none');
+                        self.$btnView.css('display', 'none');
+                        self.$btnSave.css('display', 'none');
+                        
+                        /*self.$buttons1.attr('disabled', 'disabled');
+                        self.$buttons2.attr('disabled', 'disabled');*/
+
+                        if (data.forceReload == 'true') {
+                            // Backwards compatible reload of fixed crud-datatable-pjax
+                            $.pjax.reload({container: '#crud-datatable-pjax'});
+                        } else {
+                            $.pjax.reload({container: data.forceReload});
+                        }
                     }
                     $.each(data.messages, function (key, msg) {
                         $alert.append(self.alert(key, msg));

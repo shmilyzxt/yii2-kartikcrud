@@ -16,8 +16,12 @@ use yii\helpers\Html;
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create">
-    <?= "<?= " ?>$this->render('_form', [
+
+<div class="panel panel-info">
+    <div class="panel-heading"><h3 class="panel-title">创建</h3></div>
+    <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create">
+        <?= "<?= " ?>$this->render('_form', [
         'model' => $model,
-    ]) ?>
+        ]) ?>
+    </div>
 </div>

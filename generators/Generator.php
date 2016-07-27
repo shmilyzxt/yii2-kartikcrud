@@ -195,25 +195,42 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * Generates code for active field
+     * 重写yii\gii\generators\crud\Generator,实现生成漂亮的form
      * @param string $attribute
      * @return string
+     * 
+     * 
+     <tr><th style="width: 20%; text-align: right; vertical-align: middle;">username</th>
+    <td>
+    <div class="kv-form-attribute"><div class="form-group field-user-username">
+    <div><input type="text" id="user-username" class="form-control" name="User[username]" value="邓杨">
+    <div class="help-block"></div>
+    </div>
+    </div></div></td></tr>
      */
     public function generateActiveField($attribute)
     {
         $tableSchema = $this->getTableSchema();
         if ($tableSchema === false || !isset($tableSchema->columns[$attribute])) {
             if (preg_match('/^(password|pass|passwd|passcode)$/i', $attribute)) {
-                return "\$form->field(\$model, '$attribute')->passwordInput()";
+                return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->passwordInput()";
             } else {
-                return "\$form->field(\$model, '$attribute')";
+                return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])";
             }
         }
         $column = $tableSchema->columns[$attribute];
         if ($column->phpType === 'boolean') {
-            return "\$form->field(\$model, '$attribute')->checkbox()";
+            return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->checkbox()";
         } elseif ($column->type === 'text') {
-            return "\$form->field(\$model, '$attribute')->textarea(['rows' => 6])";
+            return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->textarea(['rows' => 6])";
         } else {
             if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {
                 $input = 'passwordInput';
@@ -225,12 +242,18 @@ class Generator extends \yii\gii\Generator
                 foreach ($column->enumValues as $enumValue) {
                     $dropDownOptions[$enumValue] = Inflector::humanize($enumValue);
                 }
-                return "\$form->field(\$model, '$attribute')->dropDownList("
+                return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->dropDownList("
                     . preg_replace("/\n\s*/", ' ', VarDumper::export($dropDownOptions)).", ['prompt' => ''])";
             } elseif ($column->phpType !== 'string' || $column->size === null) {
-                return "\$form->field(\$model, '$attribute')->$input()";
+                return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->$input()";
             } else {
-                return "\$form->field(\$model, '$attribute')->$input(['maxlength' => true])";
+                return "\$form->field(\$model, '$attribute',[
+                     'showLabels'=>false
+                ])->$input(['maxlength' => true])";
             }
         }
     }
