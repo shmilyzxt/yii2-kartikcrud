@@ -23,7 +23,8 @@
         "kartik-v/yii2-detail-view": "^1.7.3",
         "kartik-v/yii2-mpdf": "^1.0.0",
         "kartik-v/yii2-editable": "^1.7.3",
-        "kartik-v/yii2-dialog": "^1.0.0"
+        "kartik-v/yii2-dialog": "^1.0.0",
+        "kartik-v/yii2-widgets": "*"
     },
     "autoload": {
         "psr-4": {
