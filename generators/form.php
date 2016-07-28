@@ -10,5 +10,5 @@ echo $form->field($generator, 'controllerClass');
 echo $form->field($generator, 'viewPath');
 echo $form->field($generator, 'baseControllerClass');
 echo $form->field($generator, 'enableI18N')->checkbox();
-echo $form->field($generator, 'isActiveOpen')->checkbox(['label'=>'是否开启生成启用，禁用功能']);
+//echo $form->field($generator, 'isActiveOpen')->checkbox(['label'=>'是否开启生成启用，禁用功能']);
 echo $form->field($generator, 'messageCategory');

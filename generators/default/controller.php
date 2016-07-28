@@ -101,10 +101,11 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
                     'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
+                    'size' => 'large',
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel(<?= $actionParams ?>),
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"])
                    ];
         }else{
             return $this->render('view', [
@@ -132,11 +133,12 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             if($request->isGet){
                 return [
                     'title'=> "创建 <?= $modelClass ?>",
+                    'size' => 'large',
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                                Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"]).
+                                Html::button('<i class="glyphicon glyphicon-ok"></i> 保存',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
             }else if($model->load($request->post()) && $model->save()){
@@ -144,18 +146,19 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "新建 <?= $modelClass ?>",
                     'content'=>'<span class="text-success">创建 <?= $modelClass ?> 成功</span>',
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                            Html::a('继续创建',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"]).
+                            Html::a('<i class="glyphicon glyphicon-ok"></i> 继续创建',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
         
                 ];         
             }else{           
                 return [
                     'title'=> "创建 <?= $modelClass ?>",
+                    'size' => 'large',
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                                Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"]).
+                                Html::button('<i class="glyphicon glyphicon-ok"></i> 保存',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
             }
@@ -194,28 +197,31 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             if($request->isGet){
                 return [
                     'title'=> "更新 <?= $modelClass ?> #".<?= $actionParams ?>,
+                    'size' => 'large',
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"]).
-                                Html::button('保存',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"]).
+                                Html::button('<i class="glyphicon glyphicon-ok"></i> 保存',['class'=>'btn btn-primary','type'=>"submit"])
                 ];         
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "<?= $modelClass ?> #".<?= $actionParams ?>,
+                    'size' => 'large',
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"])
                 ];    
             }else{
                  return [
                     'title'=> "更新 <?= $modelClass ?> #".<?= $actionParams ?>,
+                    'size' => 'large',
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('关闭',['class'=>'btn btn-default','data-dismiss'=>"modal"])
+                    'footer'=> Html::button('<i class="glyphicon glyphicon-ban-circle"></i> 关闭',['class'=>'btn btn-danger','data-dismiss'=>"modal"])
                 ];        
             }
         }else{
@@ -333,7 +339,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     * @param integer $id
     * @return type
     */
-    public function actionActivate($id)
+    /*public function actionActivate($id)
     {
         $model = $this->findModel($id);
         if ($model->status == 0) {
@@ -344,14 +350,14 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         if ($model->save()) {
             return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
         }
-    }
+    }*/
 
     /**
     * 禁用
     * @param integer $id
     * @return type
     */
-    public function actionInactivate($id)
+    /*public function actionInactivate($id)
     {
         $model = $this->findModel($id);
 
@@ -363,7 +369,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         if ($model->save()) {
             return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
         }
-    }
+    }*/
 
 
     /**

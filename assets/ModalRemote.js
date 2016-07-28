@@ -301,7 +301,7 @@ function ModalRemote(modalId) {
     this.confirmModal = function (title, message, okLabel, cancelLabel, size, dataUrl, dataRequestMethod, selectedIds) {
         var instance = this;
         window.BootstrapDialog.show({
-            type :BootstrapDialog.TYPE_WARNING,
+            type :BootstrapDialog.TYPE_DANGER,
             title: title,
             message: '<form id="ModalRemoteConfirmForm">'+message,
             buttons: [
@@ -314,7 +314,7 @@ function ModalRemote(modalId) {
                 },
                 {
                     label: '<i class="glyphicon glyphicon-ok"></i> 确定',
-                    cssClass: 'btn btn-warning',
+                    cssClass: 'btn btn-danger',
                     action: function(dialog) {
                         dialog.close();
                         var data;

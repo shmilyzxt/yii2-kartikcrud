@@ -67,9 +67,9 @@ return [
         'template' => \shmilyzxt\kartikcrud\ShmilyzxtHelper::filterActionColumn(['view','activate','inactivate', 'delete']),
         'buttons' => [
             'activate' => function($url, $model) {
-                if ($model->status == 1) {
-                    return '';
-                }
+                //if ($model->status == 1) {
+                //    return '';
+                //}
                 $options = [
                     'role'=>'modal-remote',
                     'title'=>'启用',
@@ -83,9 +83,9 @@ return [
                 return Html::a('<span class="glyphicon glyphicon-ok"></span>', $url, $options);
             },
             'inactivate' => function($url, $model) {
-                if ($model->status == 0) {
-                    return '';
-                }
+                //if ($model->status == 0) {
+                    //return '';
+                //}
                 $options = [
                     'role'=>'modal-remote',
                     'title'=>'禁用',
