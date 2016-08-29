@@ -96,6 +96,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?='<?php Modal::begin([
     "id"=>"ajaxCrudModal",
     "footer"=>"",// always need it for jquery plugin
+    "options" =>[\'backdrop \'=>\'static\'],
 ])?>'."\n"?>
 <?='<?php Modal::end(); ?>'?>
 
