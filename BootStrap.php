@@ -9,7 +9,7 @@ use yii\base\BootstrapInterface;
  * @since 1.0
  */
 
-class Bootstrap implements BootstrapInterface
+class BootStrap implements BootstrapInterface
 {
     public function bootstrap($app){
         Yii::setAlias("@kartikcrud", __DIR__);
