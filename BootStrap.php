@@ -1,6 +1,5 @@
 <?php
 namespace shmilyzxt\kartikcrud;
-
 use \Yii;
 use yii\base\BootstrapInterface;
 
