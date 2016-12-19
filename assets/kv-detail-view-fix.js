@@ -76,7 +76,6 @@
                 }
             });
             self.$btnSave.off(eClick).on(eClick, function () {
-                $alert.hide();
                 $detail.removeClass('kv-detail-loading').addClass('kv-detail-loading');
                 var form = $("#edit-model-form");
                 var modal = new ModalRemote('#ajaxCrudModal');
@@ -87,6 +86,9 @@
                 self.setMode('edit');
             });
             self.$btnView.off(eClick).on(eClick, function () {
+                self.setMode('view');
+            });
+            self.$btnReset.off(eClick).on(eClick, function () {
                 self.setMode('view');
             });
             self.$btnDelete.off(eClick).on(eClick, function (ev) {
@@ -189,6 +191,7 @@
             self.$btnUpdate = $el.find('.kv-btn-update');
             self.$btnDelete = $el.find('.kv-btn-delete');
             self.$btnView = $el.find('.kv-btn-view');
+            self.$btnReset = $el.find('.kv-btn-reset');
             self.$btnSave = $el.find('.kv-btn-save');
             self.$attribs = $el.find('.kv-attribute');
             self.$formAttribs = $el.find('.kv-form-attribute');
