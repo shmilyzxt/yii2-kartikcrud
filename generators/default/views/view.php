@@ -81,6 +81,7 @@ use kartik\detail\DetailView;
         'buttons2' => '{reset} {save}',
         'attributes' => [
 <?php
+            $model = new $generator->modelClass();
             if (($tableSchema = $generator->getTableSchema()) === false) {
                 foreach ($generator->getColumnNames() as $name) {
                     echo "            '" . $name . "',\n";
@@ -98,7 +99,7 @@ use kartik\detail\DetailView;
                     echo "\n";
                     echo "                  'attribute' => '".$column->name."',";
                     echo "\n";
-                    echo "                  'label' => '".$column->name."',";
+                    echo "                  'label' => '".$model->getAttributeLabel($column->name)."',";
                     echo "\n";
                     echo "                  'displayOnly' => $reayOnly,";
                     echo "\n";
